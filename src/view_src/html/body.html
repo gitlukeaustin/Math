@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="src/view_src/css/template.css"/>
+        <link rel="stylesheet" href="src/view_src/plugins/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="src/view_src/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+         <script src="src/view_src/plugins/jquery/jquery-3.1.1.min.js"></script>
+        <script src="src/view_src/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script src="src/view_src/js/run.js"></script>
+
+        <title>Maths</title>
+            
+    </head>
+    
+    <body>
+        <div class="nav">
+        </div>
+        <div class="wrapper">
+                <div class="content container">
+                    <span class="glyphicon glyphicon-home"></span>
+                    <h3>HI</h3>
+                    <select id="selector">
+                            <option>Points</option>
+                            <option>Poids</option>
+                    </select>
+                    <div id="table">
+                        <?php echo isset($table)?$table:""; ?>
+                    </div>
+                </div>
+                <div class="footer">
+                </div>
+        </div>
+    </body>
+</html>
