@@ -22,6 +22,10 @@
                 {
                     $this->controler->getVotesTable();
                 }
+                else if($_GET['action']=="Distribution")
+                {
+                    $this->controler->getDistributionTable();
+                }
             }
             else
             {

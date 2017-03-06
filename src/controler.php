@@ -27,5 +27,10 @@
         {
             echo $this->view->createTable($_SESSION['pourcentages']);
         }
+        
+        function getDistributionTable()
+        {
+            echo $this->view->createTable($_SESSION['noteurs']);
+        }
     }
 ?>
