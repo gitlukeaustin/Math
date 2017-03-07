@@ -18,7 +18,7 @@
             $table = "";
             foreach($content as $key => $value)
             {
-                $table .=  "<tr><td><strong>".$key."</strong></td>";
+                $table .=  "<tr><td><a onclick=\"makeGraphe('".$key."')\"><strong>".$key."</strong></a></td>";
                 $head = "<th>";
                 foreach($value as $kv => $iv)
                 {

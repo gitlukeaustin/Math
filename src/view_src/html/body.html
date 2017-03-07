@@ -9,7 +9,7 @@
          <script src="src/view_src/plugins/jquery/jquery-3.1.1.min.js"></script>
         <script src="src/view_src/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
         <script src="src/view_src/js/run.js"></script>
-
+	<script src="src/view_src/plugins/canvasjs/jquery.canvasjs.min.js"></script>
         <title>Maths</title>
             
     </head>
@@ -19,18 +19,21 @@
         </div>
         <div class="wrapper">
                 <div class="content container">
-                    <span class="glyphicon glyphicon-home"></span>
-                    <h3>HI</h3>
-                    <select id="selector">
+                    <div class="jumbotron" id="titre"><h2>Projet Entropie</h2></div>
+                    <select class="btn btn-lg btn-primary center-block" id="selector">
                             <option>Points</option>
                             <option>Poids</option>
                             <option>Distribution</option>
+				<option>Euler</option>
                     </select>
                     <div id="table">
                         <?php echo isset($table)?$table:""; ?>
                     </div>
                 </div>
-                <div class="footer">
+		<div class="content" id="graphe">
+		</div>
+                <div class="footer container">
+			<small>&#169; Luke Austin 2017</small>
                 </div>
         </div>
     </body>

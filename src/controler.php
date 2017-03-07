@@ -32,5 +32,10 @@
         {
             echo $this->view->createTable($_SESSION['noteurs']);
         }
+
+	function getSurprise()
+	{
+		echo $this->view->createTable($_SESSION['euler']);
+	}
     }
 ?>

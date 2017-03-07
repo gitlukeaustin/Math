@@ -45,13 +45,39 @@
                 $_SESSION['tableau'] = $tableau;
                 $_SESSION['noteurs'] = $noteurs;
                 $_SESSION['pourcentages'] = $this->makePourcentages($tableau,$moyenne);
-                /*$_SESSION['euler'] = $this->makeEuler($tableau,$moyenne);*/
+                $_SESSION['euler'] = $this->makeEuler($_SESSION['pourcentages'],$noteurs);
             }
         }
         
-        function makeEuler($p,$q)
+        function makeEuler($pourcentages,$noteurs)
         {
-            
+		$surprise = $noteurs;
+		$moyenne = array();	
+	 	foreach($noteurs as $nlogin => $marray)
+		{
+			foreach($marray as $nmatiere => $eleve)
+			{
+				if(strlen($eleve)>0)
+				{
+					$surprise[$nlogin][$nmatiere] = round(-log($pourcentages[$eleve][$nmatiere]),6);
+					$moyenne[$nlogin]["nombredevotes"] += 1;
+					$moyenne[$nlogin]["logs"] += $surprise[$nlogin][$nmatiere];	
+				}
+				else
+				{
+					$surprise[$nlogin][$nmatiere] = null;
+					$moyenne[$nlogin]["nombredevotes"] += 0;
+					$moyenne[$nlogin]["logs"] += 0;	
+
+				}
+			}
+		}   
+
+		foreach($moyenne as $nlogin => $moyarray)
+		{
+			$surprise[$nlogin]["Surprise Globale"] = ($moyarray["logs"]/$moyarray["nombredevotes"])+(-log($moyarray["nombredevotes"]));
+ 		}
+		return $surprise;
         }
         
         function makePourcentages($array,$moyennes)
