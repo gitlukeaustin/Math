@@ -26,6 +26,10 @@
                 {
                     $this->controler->getDistributionTable();
                 }
+                else if($_GET['action']=="graphe")
+                {
+                    $this->controler->getGraphe();
+                }
 		else if($_GET['action']=="Euler")
 		{
 			$this->controler->getSurprise();

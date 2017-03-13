@@ -1,22 +1,40 @@
 $(document).ready(function(){
-                  console.log("hi");
-                  console.log($("#selector option:selected").text());
                   $("#selector").change(function(){
-                                        
+                                   
                                         console.log("here");
                                         var texte = $("#selector option:selected").text();
-                                        console.log(texte);
                                         jQuery.ajax({
                                                     url:"index.php?action="+texte,
                                                     success: function(result)
                                                     {
-                                                    console.log(result);
                                                     $("#table").html(result);
+                                                    $("#explication").html(getExplication(texte));
                                                     }
                                                     });
                                         });
                   });
 
+function getExplication(texte)
+{
+    switch(texte)
+    {
+        case 'Distribution':
+            return " Y: Voteurs \\ X: Matières";
+            break;
+        case 'Points':
+            return " Y: Elèves \\ X: Matières";
+            break;
+        case 'Poids':
+            return " Y: Elèves \\ X: Matières";
+            break;
+        case 'Euler':
+            return " Y: Voteurs \\ X: Matières  (Formule: -log(p(voter pour un élève dans une matière))";
+            break;
+        default:
+            return "";
+            break;
+    }
+}
 
 function makeGraphe(eleve)
 {
@@ -27,21 +45,18 @@ function makeGraphe(eleve)
 		data:send,
 		success: function(result)
 		{
-			
-			console.log(result);
+			$("html, body").animate({ scrollTop: $(document).height() }, "slow");
 			var chart = new CanvasJS.Chart("graphe",
 			{
 				theme:"theme2",
 				title:{
-					text:eleve
+					text:"Entropie de "+eleve
 				},
-				animationEnabled:false,
+				animationEnabled:true,
 				data:[{
 					type:"column",
-					dataPoints: [
-						{label:"apple",y:10},
-						{label:"orange",y:26}
-						]			
+					dataPoints: JSON.parse(result)
+        
 				}]
 			});
 			chart.render();

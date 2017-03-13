@@ -32,6 +32,11 @@
         {
             echo $this->view->createTable($_SESSION['noteurs']);
         }
+        
+        function getGraphe()
+        {
+            echo json_encode($this->model->createGraphe($_POST['etudiant']));
+        }
 
 	function getSurprise()
 	{

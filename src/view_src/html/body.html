@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="src/view_src/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
          <script src="src/view_src/plugins/jquery/jquery-3.1.1.min.js"></script>
         <script src="src/view_src/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-        <script src="src/view_src/js/run.js"></script>
+        <script src="src/view_src/js/run.js?ver=2"></script>
 	<script src="src/view_src/plugins/canvasjs/jquery.canvasjs.min.js"></script>
         <title>Maths</title>
             
@@ -24,17 +24,19 @@
                             <option>Points</option>
                             <option>Poids</option>
                             <option>Distribution</option>
-				<option>Euler</option>
+                            <option>Euler</option>
                     </select>
+                    <div id="explication"></div>
                     <div id="table">
                         <?php echo isset($table)?$table:""; ?>
                     </div>
+                    <div class="container" id="graphe"></div>
                 </div>
-		<div class="content" id="graphe">
-		</div>
-                <div class="footer container">
-			<small>&#169; Luke Austin 2017</small>
-                </div>
+                
+        
+            <footer class="footer container">
+                <small>&#169; Luke Austin 2017</small>
+            </footer>
         </div>
     </body>
 </html>
