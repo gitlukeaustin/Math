@@ -1,7 +1,7 @@
 $(document).ready(function(){
+                  /* Change l'affichage du tableau. */
                   $("#selector").change(function(){
-                                   
-                                        console.log("here");
+                                        
                                         var texte = $("#selector option:selected").text();
                                         jQuery.ajax({
                                                     url:"index.php?action="+texte,
@@ -36,8 +36,13 @@ function getExplication(texte)
     }
 }
 
+/* Génère le graphe CanvasJS représentant l'écart entre la surprise des votes d'un élève et la surprise optimale. */
 function makeGraphe(eleve)
 {
+    if((eleve=="total")||(eleve=="palmarès")||(eleve=="surprise minimum"))
+    {
+        return false;
+    }
 	var send = {etudiant:eleve};
 	jQuery.ajax({
 		url:"index.php?action=graphe",

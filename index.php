@@ -30,10 +30,10 @@
                 {
                     $this->controler->getGraphe();
                 }
-		else if($_GET['action']=="Euler")
-		{
-			$this->controler->getSurprise();
-		}
+                else if($_GET['action']=="Euler")
+                {
+                    $this->controler->getSurprise();
+                }
             }
             else
             {

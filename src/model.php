@@ -1,6 +1,7 @@
 <?php
     class Model
     {
+        /* Le constructeur récupère les données, les formatte, et les stocke dans des variables de session. */
         function __construct()
         {
             if(!isset($_SESSION['scores']))
@@ -53,6 +54,7 @@
             }
         }
         
+        /* Calcule des élèves qui ont reçu le plus de votes. */
         function calculerPremiers($tableau)
         {
             $max = array();
@@ -71,6 +73,7 @@
             return $e;
         }
         
+        /* Calcule du surprise de chaque vote. */
         function makeEuler($pourcentages,$noteurs)
         {
             $surprise = $noteurs;
@@ -102,6 +105,7 @@
             return $surprise;
         }
         
+        /* Calcul du pourcentage de votes qu'a reçu un élève. */
         function makePourcentages($array,$moyennes)
         {
             $return = $array;
@@ -117,6 +121,7 @@
             return $return;
         }
         
+        /* Formatte un tableau pour le plugin CanvasJS */
         function createGraphe($etudiant)
         {
             $graphe = array();
@@ -127,7 +132,7 @@
                 $graphe[$i]['y'] = $surprise;
                 $graphe[$i]['color'] = "blue";
                 $i++;
-                $graphe[$i]['label'] = "Moyenne ".$nommatiere;
+                $graphe[$i]['label'] = "Surprise minimum pour ".$nommatiere;
                 $graphe[$i]['y'] = $_SESSION['euler']['total'][$nommatiere];
                 $graphe[$i]['color'] = "grey";
                 $i++;

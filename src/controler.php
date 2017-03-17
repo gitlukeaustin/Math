@@ -30,7 +30,7 @@
         
         function getDistributionTable()
         {
-            echo $this->view->createTable($_SESSION['noteurs']);
+            echo $this->view->createTable($_SESSION['noteurs'],"palmarès");
         }
         
         function getGraphe()
@@ -38,9 +38,9 @@
             echo json_encode($this->model->createGraphe($_POST['etudiant']));
         }
 
-	function getSurprise()
-	{
-		echo $this->view->createTable($_SESSION['euler']);
-	}
+        function getSurprise()
+        {
+            echo $this->view->createTable($_SESSION['euler'],"surprise minimum");
+        }
     }
 ?>
